@@ -1,36 +1,17 @@
 // For some weird reason react-bootstrap import is failing
 // probably issue is within tsconfig or webpack
-import {
-  Button,
-  Form,
-  InputGroup,
-} from '../../../node_modules/react-bootstrap/esm/index';
+import { Route, Routes } from 'react-router-dom'
+import LoginView from './Login'
+import './Login.css'
+import RegisterView from './Register'
 
-const LoginView = () => {
+const LoginRoutes = () => {
   return (
-    <div>
-      <Form>
-        <InputGroup className="mb-3">
-          <InputGroup.Text />
-          <Form.Control
-            placeholder="Username"
-            aria-label="Username"
-            aria-describedby="basic-addon1"
-          />
-        </InputGroup>
-        <InputGroup className="mb-3">
-          <InputGroup.Text />
-          <Form.Control
-            placeholder="Password"
-            aria-label="Password"
-            aria-describedby="basic-addon1"
-            type="password"
-          />
-        </InputGroup>
-        <Button onClick={() => {}}>Login</Button>
-      </Form>
-    </div>
-  );
-};
+    <Routes>
+      <Route index path='/login' element={<LoginView />} />
+      <Route path='/register' element={<RegisterView />} />
+    </Routes>
+  )
+}
 
-export default LoginView;
+export default LoginRoutes

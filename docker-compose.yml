@@ -2,7 +2,7 @@ version: '3'
 services:
   frontend:
     build: ./frontend
-    container_name: tira_frontend
+    container_name: flawed_frontend
     ports:
       - '3000:3000'
     environment:
@@ -14,7 +14,7 @@ services:
       - backend
   backend:
     build: ./backend
-    container_name: tira_backend
+    container_name: flawed_backend
     volumes:
       - ./backend:/app
     ports:
