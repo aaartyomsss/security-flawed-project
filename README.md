@@ -7,3 +7,12 @@ things should not be done. The app has several issues that are considered to be 
 2. Outdated components/ libraries
 3. Cryptographic failures and sensitive data exposure
 4. Broken access control
+5. Injections
+
+## How to run a project?
+
+In order to run the project make sure the docker is install. In such case it becomes as easy as running from the root folder command:
+
+```
+docker-compose up --build
+```

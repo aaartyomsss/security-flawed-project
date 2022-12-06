@@ -1,0 +1,23 @@
+.add-post-container {
+  margin-top: 5rem;
+}
+
+.add-post-container > * {
+  width: 800px;
+  margin: 0 auto;
+}
+
+.wrapper-class {
+  margin-bottom: 0.5rem;
+}
+.editor-class {
+  padding: 0.2rem;
+  border: 1px solid #ccc;
+}
+.toolbar-class {
+  border: 1px solid #ccc;
+}
+
+.post-button {
+  width: 100%;
+}

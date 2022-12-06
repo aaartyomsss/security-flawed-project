@@ -1,0 +1,9 @@
+.grid-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grid-list > div {
+  flex: 0 0 25.333333%;
+  margin: 10px;
+}

@@ -12,6 +12,9 @@ class SimpleUserSerializer(serializers.ModelSerializer):
 
 class UserSerializer(serializers.ModelSerializer):
 
+    def create(self, validated_data):
+        return User.objects.create_user(**validated_data)
+
     class Meta:
         model = User
         fields = ['id', 'username', 'social_security_number', 'first_name',
@@ -23,7 +26,6 @@ class LoginSerializer(serializers.Serializer):
     password = serializers.CharField()
 
     def validate(self, attrs):
-        print("does it work? ? ? ?? ?")
         user = authenticate(username=attrs['username'],
                             password=attrs['password'])
 

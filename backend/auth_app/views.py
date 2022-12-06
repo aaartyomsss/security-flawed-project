@@ -4,19 +4,15 @@ from rest_framework.response import Response
 from auth_app.models import User
 from auth_app.serializers import LoginSerializer, UserSerializer
 from django.contrib.auth import login
+from rest_framework.authtoken.models import Token
+from rest_framework.authtoken.views import ObtainAuthToken
 
 
-class LoginView(APIView):
-    queryset = User.objects.all()
-    permission_classes = []
-    authentication_classes = ()
-
-    def post(self, request):
-        serializer = LoginSerializer(data=request.data)
-        serializer.is_valid(raise_exception=True)
-        user = serializer.validated_data['user']
-        login(request, user)
-        return Response("Success", status=200)
+class ObtainToken(ObtainAuthToken):
+    def post(self, request, *args, **kwargs):
+        response = super(ObtainToken, self).post(request, *args, **kwargs)
+        token = Token.objects.get(key=response.data['token'])
+        return Response({'token': token.key, 'user_id': token.user_id})
 
 
 class RegistrationView(CreateAPIView):
